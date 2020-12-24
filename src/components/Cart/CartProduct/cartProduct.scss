@@ -1,0 +1,57 @@
+@import '../../../styles/_colors.scss';
+
+
+.cart-content-wrapper {
+  display: block;
+  width: 90%;
+  border-radius: 10px;
+  max-height: 300px;
+  margin: 10px auto;
+  padding: 5px 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: $bright-yellow;
+
+  .empty {
+    display: block;
+    text-align: center;
+  }
+  .cart-product {
+    font-size: 12px;
+    padding: 35px 0px;
+    border-bottom: 2px solid $red;
+    .cart-product-name {
+      float: left;
+      width: 50%;
+      font-weight: bold;
+      font-size: 13px;
+      color: $black;
+    }
+    .cart-product-quantity {
+      float: left;
+      width: 35%;
+      text-align: right;
+      font-weight: bolder;
+      font-size: 13px;
+      color: $black;
+    }
+    .cart-ingridient-wrapper {
+      display: block;
+      text-align: left;
+      width: 60%;
+      margin: 0;
+      padding-left: 15px;
+    }
+    .remove-button {
+      float: right;
+      height: 18px;
+      color: $black;
+      transform: scale(1, 1);
+      transition: 0.3s;
+      &:hover {
+        color: $red;
+        transform: scale(1.4, 1.4);
+      }
+    }
+  }
+}

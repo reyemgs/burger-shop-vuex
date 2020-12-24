@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  grid-template-columns: 25% auto;
+}
+
+.content {
+  grid-column-start: 2;
+  margin: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sidebar {
+  position: fixed;
+  width: 25%;
+  padding-top: 20px;
+}
