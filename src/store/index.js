@@ -30,6 +30,31 @@ export default new Vuex.Store({
     setCurrentCategory(state, category) {
       state.currentCategory = category;
     },
+
+    increaseQuantity(state, product) {
+      const foundProduct = state.response.menu.find(
+        item => item.id === product.id
+      );
+      foundProduct.quantity += 1;
+    },
+
+    decreaseQuantity(state, product) {
+      const foundProduct = state.response.menu.find(
+        item => item.id === product.id
+      );
+      foundProduct.quantity -= 1;
+    },
+
+    addInCart(state, product) {
+      state.addedProducts.push(product);
+    },
+
+    removeFromCart(state, product) {
+      const index = state.addedProducts.findIndex(
+        item => item.id === product.id
+      );
+      state.addedProducts.splice(index, 1);
+    },
   },
 
   actions: {
@@ -55,6 +80,30 @@ export default new Vuex.Store({
     changeCurrentCategory({ commit }, category) {
       if (this.state.currentCategory === category) return;
       commit('setCurrentCategory', category);
+    },
+
+    increaseQuantity({ commit }, product) {
+      if (product.quantity === 99) return;
+      commit('increaseQuantity', product);
+    },
+
+    decreaseQuantity({ commit }, product) {
+      if (product.quantity === 1) return;
+      commit('decreaseQuantity', product);
+    },
+
+    addInCart({ commit }, product) {
+      const addedProduct = this.state.addedProducts.find(
+        item => item.id === product.id
+      );
+
+      if (!addedProduct) {
+        commit('addInCart', product);
+      }
+    },
+
+    removeFromCart({ commit }, product) {
+      commit('removeFromCart', product);
     },
   },
 

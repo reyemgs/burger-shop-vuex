@@ -1,11 +1,14 @@
 <template>
   <div class="cart-product">
-    <div class="cart-product-name">NAME</div>
+    <div class="cart-product-name">{{ product.name }}</div>
     <div class="cart-product-quantity">
-      QUANTITY
+      {{ product.quantity }}
     </div>
     <div class="remove-button">
-      <i class="fas fa-trash-alt fa-lg"></i>
+      <i
+        class="fas fa-trash-alt fa-lg"
+        @click="() => removeFromCart(product)"
+      ></i>
     </div>
   </div>
 </template>

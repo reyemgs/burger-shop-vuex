@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ProductCard',
 
@@ -8,5 +10,9 @@ export default {
     market: {
       type: Object,
     },
+  },
+
+  methods: {
+    ...mapActions(['increaseQuantity', 'decreaseQuantity', 'addInCart']),
   },
 };

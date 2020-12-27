@@ -10,13 +10,16 @@
         <span class="cart-quantity-label">Количество</span>
       </div>
       <div class="cart-content-wrapper">
-        <span class="empty">
+        <span class="empty" v-if="addedProducts.length === 0">
           Добавьте товары в корзину
         </span>
-        <CartProduct />
-        <CartProduct />
+        <CartProduct
+          v-for="product of addedProducts"
+          :key="product.id"
+          :product="product"
+        />
       </div>
-      <span class="cart-total-price">Итого: PRICE &#8381;</span>
+      <span class="cart-total-price">Итого: {{ totalPrice }} &#8381;</span>
       <button class="order-button">Оформить заказ</button>
     </div>
   </div>

@@ -17,13 +17,21 @@
     <div class="add-in-basket">
       <div class="product-quantity-label">Количество</div>
       <div class="btn-decrease">
-        <i class="fas fa-minus-circle" aria-hidden="true"></i>
+        <i
+          class="fas fa-minus-circle"
+          aria-hidden="true"
+          @click="() => decreaseQuantity(product)"
+        ></i>
       </div>
       <span class="product-quantity">{{ product.quantity }}</span>
       <div class="btn-increase">
-        <i class="fas fa-plus-circle" aria-hidden="true"></i>
+        <i
+          class="fas fa-plus-circle"
+          aria-hidden="true"
+          @click="() => increaseQuantity(product)"
+        ></i>
       </div>
-      <button class="btn-in-basket">
+      <button class="btn-in-basket" @click="() => addInCart(product)">
         В корзину
       </button>
     </div>
