@@ -1,0 +1,127 @@
+@import '../../styles/_colors.scss';
+
+.product-card {
+  -webkit-user-select: none;
+  margin: 0px 40px 30px;
+  width: 300px;
+  min-height: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  &:hover {
+    -webkit-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    transform: scale(1.04);
+  }
+  .product-header {
+    background: $yellow;
+    padding-bottom: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: 4px solid $red;
+  }
+
+  .product-market,
+  .product-image,
+  .product-price,
+  .product-name {
+    display: block;
+    margin: auto;
+    padding: 5px;
+  }
+  .product-image {
+    width: 230px;
+    height: 230px;
+    border: 8px solid $red;
+    border-radius: 200px;
+    background: $white;
+  }
+  .product-name {
+    margin: 5px 0px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: $black;
+    height: 40px;
+  }
+  .product-description {
+    margin: auto;
+    width: 80%;
+    height: 40px;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    border-top: 2px solid $yellow-blind;
+    border-bottom: 2px solid $yellow-blind;
+    border-radius: 2px;
+    color: $black;
+  }
+  .constructor-btn {
+    display: block;
+    font-family: 'Comfortaa', cursive;
+    margin: 10px auto;
+    background: $red;
+    border: 2px solid $red;
+    color: $white;
+    border-radius: 3px;
+    outline: none;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
+  }
+  .product-price {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $red;
+  }
+  .add-in-basket {
+    -webkit-user-select: none;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 1rem;
+    .product-quantity-label {
+      display: block;
+    }
+    .product-quantity {
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      font-size: 1.5rem;
+    }
+    .btn-increase,
+    .btn-decrease {
+      display: inline-block;
+      padding: 10px 5px;
+      color: $black;
+      .fa-plus-circle,
+      .fa-minus-circle {
+        transition: 0.4s;
+        &:hover {
+          transform: scale(1.4, 1.4) rotate(180deg);
+          color: $red;
+        }
+      }
+    }
+    .btn-in-basket {
+      font-family: 'Comfortaa', cursive;
+      display: block;
+      margin: auto;
+      width: 150px;
+      height: 40px;
+      color: $black;
+      font-size: 1.3rem;
+      background: $yellow;
+      border: 2px solid $yellow;
+      border-radius: 5px;
+      outline: none;
+      transition: 0.3s;
+      &:hover {
+        box-shadow: 1px 1px $red, 2px 2px $red, 3px 3px $red, 4px 4px $red,
+          5px 5px $red;
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+      }
+    }
+  }
+}
