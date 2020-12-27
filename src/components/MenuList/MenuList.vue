@@ -1,12 +1,10 @@
 <template>
   <ul class="menu-list">
-    <MenuItem />
-    <MenuItem />
-    <MenuItem />
-    <MenuItem />
-    <MenuItem />
-    <MenuItem />
-    <MenuItem />
+    <MenuItem
+      v-for="category of categories"
+      :key="category.type"
+      :category="category"
+    />
   </ul>
 </template>
 
