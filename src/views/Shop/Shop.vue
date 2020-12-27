@@ -1,24 +1,18 @@
 <template>
   <div id="shop">
-    <!-- <Loader v-if="loading" />
-    <Header /> -->
+    <Loader v-if="$store.state.loading" />
     <div class="container">
       <div class="sidebar">
         <MenuList />
         <Cart />
       </div>
       <div class="content">
-        <!-- <ProductCard
-          v-for="product of filteredProducts"
+        <ProductCard
+          v-for="product of productsByCategory"
           :key="product.id"
           :product="product"
-          :ingridients="ingridients"
-          :markets="response.markets"
-          @addInBasket="addInBasket"
-          @updateQuantity="updateQuantity"
-          @updatePrice="updatePrice"
-          @showModal="openModal"
-        /> -->
+          :market="markets[product.market]"
+        />
       </div>
     </div>
     <!-- <Modal
