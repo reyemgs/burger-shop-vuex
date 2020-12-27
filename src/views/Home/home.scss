@@ -2,6 +2,7 @@
 
 .home {
   font-size: 4rem;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +10,7 @@
   height: 100%;
   background: $yellow;
   .welcome {
-    margin-top: 15%;
+    margin: auto;
     text-align: center;
   }
 }
