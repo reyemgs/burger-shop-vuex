@@ -53,6 +53,7 @@ export default new Vuex.Store({
       const index = state.addedProducts.findIndex(
         item => item.id === product.id
       );
+      state.addedProducts[index].quantity = 1;
       state.addedProducts.splice(index, 1);
     },
   },
