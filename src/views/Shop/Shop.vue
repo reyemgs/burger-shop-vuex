@@ -15,15 +15,7 @@
         />
       </div>
     </div>
-    <!-- <Modal
-      v-if="showModal"
-      :product="currentProduct"
-      :ingridients="ingridients"
-      :modalItems="response.modal"
-      @closeModal="closeModal"
-      @addInBasket="addInBasket"
-      @updateQuantity="updateQuantity"
-    /> -->
+    <Modal v-if="$store.state.showModal" />
   </div>
 </template>
 

@@ -15,46 +15,63 @@ export default new Vuex.Store({
     },
     addedProducts: [],
     loading: true,
-    currentCategory: 'pizza',
+    currentCategory: 'sandwiches',
+    currentModalCategory: 'sizes',
+    currentProduct: null,
+    showModal: false,
   },
 
   mutations: {
-    setResponse(state, response) {
+    SET_RESPONSE(state, response) {
       state.response = response;
     },
 
-    toggleLoader(state, loading) {
+    TOGGLE_LOADER(state, loading) {
       state.loading = loading;
     },
 
-    setCurrentCategory(state, category) {
+    SET_CURRENT_CATEGORY(state, category) {
       state.currentCategory = category;
     },
 
-    increaseQuantity(state, product) {
+    SET_MODAL_CATEGORY(state, category) {
+      state.currentModalCategory = category;
+    },
+
+    INCREASE_QUANTITY(state, product) {
       const foundProduct = state.response.menu.find(
         item => item.id === product.id
       );
       foundProduct.quantity += 1;
     },
 
-    decreaseQuantity(state, product) {
+    DECREASE_QUANTITY(state, product) {
       const foundProduct = state.response.menu.find(
         item => item.id === product.id
       );
       foundProduct.quantity -= 1;
     },
 
-    addInCart(state, product) {
+    ADD_IN_CART(state, product) {
       state.addedProducts.push(product);
     },
 
-    removeFromCart(state, product) {
+    REMOVE_FROM_CART(state, product) {
       const index = state.addedProducts.findIndex(
         item => item.id === product.id
       );
       state.addedProducts[index].quantity = 1;
       state.addedProducts.splice(index, 1);
+    },
+
+    OPEN_MODAL(state, product) {
+      state.showModal = true;
+      state.currentProduct = product;
+    },
+
+    CLOSE_MODAL(state) {
+      state.showModal = false;
+      state.currentProduct = null;
     },
   },
 
@@ -74,23 +91,28 @@ export default new Vuex.Store({
         Vue.set(product, 'quantity', 1);
       });
 
-      commit('setResponse', response);
-      commit('toggleLoader', false);
+      commit('SET_RESPONSE', response);
+      commit('TOGGLE_LOADER', false);
     },
 
     changeCurrentCategory({ commit }, category) {
       if (this.state.currentCategory === category) return;
-      commit('setCurrentCategory', category);
+      commit('SET_CURRENT_CATEGORY', category);
+    },
+
+    changeCurrentModalCategory({ commit }, category) {
+      if (this.state.currentModalCategory === category) return;
+      commit('SET_MODAL_CATEGORY', category);
     },
 
     increaseQuantity({ commit }, product) {
       if (product.quantity === 99) return;
-      commit('increaseQuantity', product);
+      commit('INCREASE_QUANTITY', product);
     },
 
     decreaseQuantity({ commit }, product) {
       if (product.quantity === 1) return;
-      commit('decreaseQuantity', product);
+      commit('DECREASE_QUANTITY', product);
     },
 
     addInCart({ commit }, product) {
@@ -99,12 +121,20 @@ export default new Vuex.Store({
       );
 
       if (!addedProduct) {
-        commit('addInCart', product);
+        commit('ADD_IN_CART', product);
       }
     },
 
     removeFromCart({ commit }, product) {
-      commit('removeFromCart', product);
+      commit('REMOVE_FROM_CART', product);
+    },
+
+    openModal({ commit }, product) {
+      commit('OPEN_MODAL', product);
+    },
+
+    closeModal({ commit }) {
+      commit('CLOSE_MODAL');
     },
   },
 
@@ -129,6 +159,26 @@ export default new Vuex.Store({
 
     addedProducts(state) {
       return state.addedProducts;
+    },
+
+    currentProduct(state) {
+      return state.currentProduct;
+    },
+
+    modal(state) {
+      return state.response.modal;
+    },
+
+    ingridients(state) {
+      return state.response.ingridients;
+    },
+
+    ingridientsByCategory(state) {
+      return state.response.ingridients[state.currentModalCategory];
+    },
+
+    currentModalCategory(state) {
+      return state.currentModalCategory;
     },
   },
 

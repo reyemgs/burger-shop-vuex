@@ -4,6 +4,7 @@ import Loader from '../../components/Loader/Loader.vue';
 import MenuList from '../../components/MenuList/MenuList.vue';
 import Cart from '../../components/Cart/Cart.vue';
 import ProductCard from '../../components/ProductCard/ProductCard.vue';
+import Modal from '../../components/Modal/Modal.vue';
 
 export default {
   name: 'Shop',
@@ -15,6 +16,7 @@ export default {
     MenuList,
     Cart,
     ProductCard,
+    Modal,
   },
 
   mounted() {

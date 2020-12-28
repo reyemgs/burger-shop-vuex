@@ -10,7 +10,11 @@
     <p class="product-description">
       {{ product.description }}
     </p>
-    <button class="constructor-btn" v-if="product.type === 'multiple'">
+    <button
+      class="constructor-btn"
+      v-if="product.type === 'multiple'"
+      @click="() => openModal(product)"
+    >
       Конструктор
     </button>
     <span class="product-price">&#8381; {{ product.price }}</span>

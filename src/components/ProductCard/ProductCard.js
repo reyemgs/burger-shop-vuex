@@ -13,6 +13,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(['increaseQuantity', 'decreaseQuantity', 'addInCart']),
+    ...mapActions([
+      'increaseQuantity',
+      'decreaseQuantity',
+      'addInCart',
+      'openModal',
+    ]),
   },
 };

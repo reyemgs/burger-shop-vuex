@@ -1,0 +1,58 @@
+@import '../../styles/_colors.scss';
+
+.done-page {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 540px;
+  .done-wrapper {
+    display: block;
+    margin-top: 110px;
+    margin-right: 40px;
+    text-align: center;
+    width: 60%;
+    float: right;
+    .done-header {
+      display: block;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-bottom: 2px solid $red;
+      color: $black;
+    }
+    .done-info {
+      display: block;
+      text-align: left;
+      border-bottom: 2px solid $red;
+      .done-size,
+      .done-bread,
+      .done-vegetables,
+      .done-sauces,
+      .done-fillings {
+        display: block;
+        padding: 10px;
+        font-size: 1rem;
+      }
+    }
+    .done-name {
+      display: block;
+      font-size: 1rem;
+      padding: 1rem;
+      font-weight: bold;
+      color: $red;
+    }
+  }
+  .product-image {
+    display: block;
+    margin: 120px auto;
+    margin-left: 40px;
+    float: left;
+    width: 250px;
+    height: 250px;
+    border: 8px solid $yellow;
+    border-radius: 150px;
+  }
+}
